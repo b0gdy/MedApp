@@ -12,5 +12,6 @@ namespace API.Data
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Pacient> Pacients { get; set; }
         public DbSet<Medic> Medics { get; set; }
+        public DbSet<MedicPacient> MedicPacients { get; set; }
     }
 }

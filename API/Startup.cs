@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Extensions;
 using API.Interfaces;
+using API.Repositories.MedicPacientRepository;
 using API.Repositories.MedicRepository;
 using API.Repositories.PacientRepository;
 using API.Services;
@@ -46,6 +47,7 @@ namespace API
             });
             services.AddTransient<IPacientRepository, PacientRepository>();
             services.AddTransient<IMedicRepository, MedicRepository>();
+            services.AddTransient<IMedicPacientRepository, MedicPacientRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +64,7 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
             app.UseAuthentication();
 

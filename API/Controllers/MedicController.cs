@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using API.DTOs;
 using API.Entities;
+using API.Repositories.MedicPacientRepository;
 using API.Repositories.MedicRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace API.Controllers
     public class MedicController : ControllerBase
     {
         public IMedicRepository IMedicRepository { get; set; }
+
         public MedicController(IMedicRepository repository)
         {
             IMedicRepository = repository;
@@ -18,16 +20,22 @@ namespace API.Controllers
 
         // GET: api/Provider
         [HttpGet]
-        public ActionResult<IEnumerable<Medic>> Get()
+        public ActionResult<IEnumerable<Medic>> GetAll()
         {
             return IMedicRepository.GetAll();
         }
 
         // GET: api/Provider/5
-        [HttpGet("{id}")]
-        public ActionResult<Medic> Get(int id)
+        [HttpGet("{id:int}", Name = "GetById")]
+        public ActionResult<Medic> GetById(int id)
         {
-            return IMedicRepository.Get(id);
+            return IMedicRepository.GetById(id);
+        }
+
+        [HttpGet("{userName}", Name = "GetByUserName")]
+        public ActionResult<MedicMemberDTO> GetByUserName(string userName)
+        {
+            return IMedicRepository.GetByUserName(userName);
         }
 
         // POST: api/Provider
@@ -37,6 +45,8 @@ namespace API.Controllers
             Medic model = new Medic()
             {
                 UserName = value.UserName,
+                FirstName = value.FirstName,
+                LastName = value.LastName,
                 // Password = value.Password,
             };
             return IMedicRepository.Create(model);
@@ -46,10 +56,18 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public Medic Put(int id, MedicDTO value)
         {
-            Medic model = IMedicRepository.Get(id);
+            Medic model = IMedicRepository.GetById(id);
             if (value.UserName != null)
             {
                 model.UserName = value.UserName;
+            }
+            if (value.FirstName != null)
+            {
+                model.FirstName = value.FirstName;
+            }
+            if (value.LastName != null)
+            {
+                model.LastName = value.LastName;
             }
             /*
             if (value.Password != null)
@@ -64,7 +82,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public Medic Delete(int id)
         {
-            Medic Medic = IMedicRepository.Get(id);
+            Medic Medic = IMedicRepository.GetById(id);
             return IMedicRepository.Delete(Medic);
         }
     }

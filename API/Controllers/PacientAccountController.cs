@@ -63,6 +63,8 @@ namespace API.Controllers
             return new PacientDTO
             {
                 UserName = pacient.UserName,
+                FirstName = pacient.FirstName,
+                LastName = pacient.LastName,
                 Token = _pacientTokenService.CreateToken(pacient)
             };
         }

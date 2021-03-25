@@ -63,6 +63,8 @@ namespace API.Controllers
             return new MedicDTO
             {
                 UserName = medic.UserName,
+                FirstName = medic.FirstName,
+                LastName = medic.LastName,
                 Token = _medicTokenService.CreateToken(medic)
             };
         }

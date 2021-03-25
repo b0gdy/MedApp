@@ -37,6 +37,8 @@ namespace API.Controllers
             Pacient model = new Pacient()
             {
                 UserName = value.UserName,
+                FirstName = value.FirstName,
+                LastName = value.LastName,
                 // Password = value.Password,
             };
             return IPacientRepository.Create(model);
@@ -50,6 +52,14 @@ namespace API.Controllers
             if (value.UserName != null)
             {
                 model.UserName = value.UserName;
+            }
+            if (value.FirstName != null)
+            {
+                model.FirstName = value.FirstName;
+            }
+            if (value.LastName != null)
+            {
+                model.LastName = value.LastName;
             }
             /*
             if (value.Password != null)
