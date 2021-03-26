@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using API.DTOs;
+using API.DTOs.MedicDTOs;
 using API.Entities;
-using API.Repositories.MedicPacientRepository;
 using API.Repositories.MedicRepository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,13 +26,13 @@ namespace API.Controllers
         }
 
         // GET: api/Provider/5
-        [HttpGet("{id:int}", Name = "GetById")]
-        public ActionResult<Medic> GetById(int id)
+        [HttpGet("{id:int}")]
+        public ActionResult<Medic> Get(int id)
         {
-            return IMedicRepository.GetById(id);
+            return IMedicRepository.Get(id);
         }
 
-        [HttpGet("{userName}", Name = "GetByUserName")]
+        [HttpGet("{userName}")]
         public ActionResult<MedicMemberDTO> GetByUserName(string userName)
         {
             return IMedicRepository.GetByUserName(userName);
@@ -56,7 +56,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public Medic Put(int id, MedicDTO value)
         {
-            Medic model = IMedicRepository.GetById(id);
+            Medic model = IMedicRepository.Get(id);
             if (value.UserName != null)
             {
                 model.UserName = value.UserName;
@@ -82,7 +82,7 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public Medic Delete(int id)
         {
-            Medic Medic = IMedicRepository.GetById(id);
+            Medic Medic = IMedicRepository.Get(id);
             return IMedicRepository.Delete(Medic);
         }
     }

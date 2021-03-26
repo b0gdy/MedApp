@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
+using API.DTOs.PacientDTOs;
 using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;

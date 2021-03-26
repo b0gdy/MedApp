@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using API.Data;
 using API.DTOs;
+using API.DTOs.MedicDTOs;
 using API.Entities;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -28,7 +29,7 @@ namespace API.Repositories.MedicRepository
             
         }
 
-       public Medic GetById(int Id)
+       public Medic Get(int Id)
         {
             return _context.Medics.SingleOrDefault(x => x.Id == Id);
         }

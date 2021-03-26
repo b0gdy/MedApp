@@ -1,4 +1,6 @@
-using API.DTOs;
+using API.DTOs.ConsultationsDTOs;
+using API.DTOs.MedicDTOs;
+using API.DTOs.PacientDTOs;
 using API.Entities;
 using AutoMapper;
 
@@ -8,8 +10,10 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<Pacient, PacientMemberDTO>();
             CreateMap<Medic, MedicMemberDTO>();
-            CreateMap<MedicPacient, MedicPacientDTO>();
+            // CreateMap<Pacient, PacientMemberDTO>();
+            CreateMap<Consultation, ConsultationMemberDTO>();
         }
     }
 }

@@ -1,17 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using API.Data;
+using API.DTOs;
+using API.DTOs.PacientDTOs;
 using API.Entities;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace API.Repositories.PacientRepository
 {
     public class PacientRepository : IPacientRepository
     {
         public DataContext _context { get; set; }
+        public IMapper _mapper {get; set; }
 
-        public PacientRepository(DataContext context)
+        public PacientRepository(DataContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public Pacient Create(Pacient Pacient)
@@ -25,6 +31,14 @@ namespace API.Repositories.PacientRepository
         public Pacient Get(int Id)
         {
             return _context.Pacients.SingleOrDefault(x => x.Id == Id);
+        }
+
+        public PacientMemberDTO GetByUserName(string UserName)
+        {
+            return _context.Pacients
+                .Where(x => x.UserName == UserName)
+                .ProjectTo<PacientMemberDTO>(_mapper.ConfigurationProvider)
+                .SingleOrDefault();
         }
 
         public List<Pacient> GetAll()

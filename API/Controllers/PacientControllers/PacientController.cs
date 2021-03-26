@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using API.DTOs;
+using API.DTOs.PacientDTOs;
 using API.Entities;
 using API.Repositories.PacientRepository;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +25,16 @@ namespace API.Controllers
         }
 
         // GET: api/Provider/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public ActionResult<Pacient> Get(int id)
         {
             return IPacientRepository.Get(id);
+        }
+
+        [HttpGet("{userName}")]
+        public ActionResult<PacientMemberDTO> GetByUserName(string userName)
+        {
+            return IPacientRepository.GetByUserName(userName);
         }
 
         // POST: api/Provider

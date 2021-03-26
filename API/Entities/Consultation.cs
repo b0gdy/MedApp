@@ -1,8 +1,10 @@
 namespace API.Entities
 {
-    public class MedicPacient
+    public class Consultation
     {
         public int Id { get; set; }
+        public string Treatment { get; set; }
+
         public int MedicId { get; set; }
         public int PacientId { get; set; }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using API.DTOs.ConsultationsDTOs;
 
-namespace API.DTOs
+namespace API.DTOs.MedicDTOs
 {
     public class MedicMemberDTO
     {
@@ -9,6 +10,6 @@ namespace API.DTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public List<MedicPacientDTO> MedicPacient { get; set; }
+        public IList<ConsultationMemberDTO> Consultations { get; set; }
     }
 }
