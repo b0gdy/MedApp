@@ -3,12 +3,14 @@ using API.DTOs;
 using API.DTOs.MedicDTOs;
 using API.Entities;
 using API.Repositories.MedicRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MedicController : ControllerBase
     {
         public IMedicRepository IMedicRepository { get; set; }
@@ -53,10 +55,11 @@ namespace API.Controllers
         }
 
         // PUT: api/Provider/5
-        [HttpPut("{id}")]
-        public Medic Put(int id, MedicDTO value)
+        //[HttpPut("{id}")]
+        [HttpPut]
+        public Medic Put(MedicDTO value)
         {
-            Medic model = IMedicRepository.Get(id);
+            Medic model = IMedicRepository.Get(value.Id);
             if (value.UserName != null)
             {
                 model.UserName = value.UserName;

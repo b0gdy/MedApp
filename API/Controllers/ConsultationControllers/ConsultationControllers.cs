@@ -3,12 +3,14 @@ using API.DTOs;
 using API.DTOs.ConsultationsDTOs;
 using API.Entities;
 using API.Repositories.ConsultationRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ConsultationController : ControllerBase
     {
         public IConsultationRepository IConsultationRepository { get; set; }

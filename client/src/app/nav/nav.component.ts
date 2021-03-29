@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
+import { MedicAccountService } from '../_services/medic-account.service';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,8 @@ import { AccountService } from '../_services/account.service';
 export class NavComponent implements OnInit {
   model: any = {}
 
-  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
+  constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService, 
+    public medicAccountService: MedicAccountService) { }
 
   ngOnInit(): void {
   }
@@ -32,4 +34,17 @@ export class NavComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 
+  loginMedic() {
+    this.medicAccountService.loginMedic(this.model).subscribe(response => {
+      this.router.navigateByUrl('/medic-detail');
+    }, error => {
+      console.log(error);
+      this.toastr.error(error.error);
+    })
+  }
+
+  logoutMedic() {
+    this.medicAccountService.logoutMedic();
+    this.router.navigateByUrl('/');
+  }
 }

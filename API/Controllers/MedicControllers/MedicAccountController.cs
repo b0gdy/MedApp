@@ -30,6 +30,7 @@ namespace API.Controllers
 
             var medic = new Medic
             {
+                Id = medicRegisterDTO.Id,
                 UserName = medicRegisterDTO.UserName.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(medicRegisterDTO.Password)),
                 PasswordSalt = hmac.Key
@@ -40,6 +41,7 @@ namespace API.Controllers
 
             return new MedicDTO
             {
+                Id = medic.Id,
                 UserName = medic.UserName,
                 Token = _medicTokenService.CreateToken(medic)
             };
@@ -63,6 +65,7 @@ namespace API.Controllers
 
             return new MedicDTO
             {
+                Id = medic.Id,
                 UserName = medic.UserName,
                 FirstName = medic.FirstName,
                 LastName = medic.LastName,

@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
+import { MedicDetailComponent } from './medic-detail/medic-detail.component';
+import { MedicEditComponent } from './medic-edit/medic-edit.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { MedicAuthGuard } from './_guards/medic-auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +21,15 @@ const routes: Routes = [
       {path: 'members/:id', component: MemberDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
+    ]
+  },
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [MedicAuthGuard],
+    children: [
+      {path: 'medic-detail', component: MedicDetailComponent},
+      {path: 'medic-edit', component: MedicEditComponent},
     ]
   },
   {path: '**', component: HomeComponent, pathMatch: 'full'},

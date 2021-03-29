@@ -16,6 +16,10 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './_modules/shared.module';
+import { MedicRegisterComponent } from './medic-register/medic-register.component';
+import { MedicDetailComponent } from './medic-detail/medic-detail.component';
+import { MedicLoginComponent } from './medic-login/medic-login.component';
+import { MedicEditComponent } from './medic-edit/medic-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { SharedModule } from './_modules/shared.module';
     MemberListComponent,
     MemberDetailComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    MedicRegisterComponent,
+    MedicDetailComponent,
+    MedicLoginComponent,
+    MedicEditComponent
   ],
   imports: [
     BrowserModule,

@@ -3,20 +3,19 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AccountService } from '../_services/account.service';
 import { MedicAccountService } from '../_services/medic-account.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-  constructor(private accountService: AccountService, private toastr: ToastrService) {}
+export class MedicAuthGuard implements CanActivate {
+  constructor(private medicAccountService: MedicAccountService, private toastr: ToastrService) {}
 
   canActivate(): Observable<boolean> {
-    return this.accountService.currentUser$.pipe(
-      map(user => {
-        if (user) return true;
-        this.toastr.error('You shall not pass!')
+    return this.medicAccountService.currentMedic$.pipe(
+      map(medic => {
+        if (medic) return true;
+        this.toastr.error('Medic access denied!')
       })
     );
   }

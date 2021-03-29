@@ -1,0 +1,25 @@
+<div>
+    medic id = {{medic.id}}<br>
+    medic userName = {{medic.userName}}<br>
+    medic firstName = {{medic.firstName}}<br>
+    medic lastName = {{medic.lastName}}<br>
+    medic token = {{medic.token}}<br>
+</div>
+<hr>
+<div>
+    medicMember id = {{medicMember?.id}}<br>
+    medicMember userName = {{medicMember?.userName}}<br>
+    medicMember firstName = {{medicMember?.firstName}}<br>
+    medicMember lastName = {{medicMember?.lastName}}<br>
+</div>
+<div>
+    medicMember consultations =<br>
+    <br>
+    <div *ngFor="let consultation of medicMember?.consultations">
+        consultation.id = {{consultation.id}}<br>
+        consultation.treatment = {{consultation.treatment}}<br>
+        consultation.medicId = {{consultation.medicId}}<br>
+        consultation.pacientId = {{consultation.pacientId}}<br>
+        <br>
+    </div>
+</div>
