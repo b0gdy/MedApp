@@ -42,6 +42,9 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("MedicId")
                         .HasColumnType("INTEGER");
 
@@ -78,6 +81,9 @@ namespace API.Data.Migrations
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("BLOB");
 
+                    b.Property<string>("Specialty")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("UserName")
                         .HasColumnType("TEXT");
 
@@ -92,7 +98,13 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("BirthDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Gender")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
@@ -115,13 +127,13 @@ namespace API.Data.Migrations
             modelBuilder.Entity("API.Entities.Consultation", b =>
                 {
                     b.HasOne("API.Entities.Medic", "Medic")
-                        .WithMany("MedicPacient")
+                        .WithMany("Consultations")
                         .HasForeignKey("MedicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("API.Entities.Pacient", "Pacient")
-                        .WithMany("MedicPacient")
+                        .WithMany("Consultations")
                         .HasForeignKey("PacientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -133,12 +145,12 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Medic", b =>
                 {
-                    b.Navigation("MedicPacient");
+                    b.Navigation("Consultations");
                 });
 
             modelBuilder.Entity("API.Entities.Pacient", b =>
                 {
-                    b.Navigation("MedicPacient");
+                    b.Navigation("Consultations");
                 });
 #pragma warning restore 612, 618
         }

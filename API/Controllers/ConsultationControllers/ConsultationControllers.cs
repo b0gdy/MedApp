@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using API.DTOs;
 using API.DTOs.ConsultationsDTOs;
@@ -41,16 +42,16 @@ namespace API.Controllers
             {
                 Treatment = value.Treatment,
                 MedicId = value.MedicId,
-                PacientId = value.PacientId
+                PacientId = value.PacientId,
             };
             return IConsultationRepository.Create(model);
         }
 
         // PUT: api/Provider/5
-        [HttpPut("{id}")]
-        public Consultation Put(int id, ConsultationDTO value)
+        [HttpPut]
+        public Consultation Put(ConsultationDTO value)
         {
-            Consultation model = IConsultationRepository.Get(id);
+            Consultation model = IConsultationRepository.Get(value.Id);
             if (value.Treatment != null)
             {
                 model.Treatment = value.Treatment;

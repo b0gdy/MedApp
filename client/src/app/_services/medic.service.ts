@@ -54,6 +54,7 @@ export class MedicService {
       username: medic.userName,
       firstName: medic.firstName,
       lastName: medic.lastName,
+      specialty: medic.specialty,
     };
     let url = (this.baseUrl + 'Medic');
     return this.http.put<Medic>(url, payload, options).pipe(

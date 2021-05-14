@@ -49,6 +49,7 @@ namespace API.Controllers
                 UserName = value.UserName,
                 FirstName = value.FirstName,
                 LastName = value.LastName,
+                Specialty = value.Specialty,
                 // Password = value.Password,
             };
             return IMedicRepository.Create(model);
@@ -71,6 +72,10 @@ namespace API.Controllers
             if (value.LastName != null)
             {
                 model.LastName = value.LastName;
+            }
+            if (value.Specialty != null)
+            {
+                model.Specialty = value.Specialty;
             }
             /*
             if (value.Password != null)

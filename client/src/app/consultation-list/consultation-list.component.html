@@ -1,0 +1,24 @@
+<!-- <div>
+    medicMember consultations =<br>
+    <br>
+    <div *ngFor="let consultation of consultations">
+        consultation.id = {{consultation?.id}}<br>
+        consultation.treatment = {{consultation?.treatment}}<br>
+        consultation.medicId = {{consultation?.medicId}}<br>
+        consultation.pacientId = {{consultation?.pacientId}}<br>
+        <br>
+    </div>
+</div> -->
+<div>
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- <app-consultation-card
+                *ngFor="let consultationEl of consultations; let i = index"
+                [consultation]="consultationEl"
+                [index]="i">
+            </app-consultation-card> -->
+            <app-consultation-card *ngFor="let consultationEl of consultations" 
+                [consultation]="consultationEl"></app-consultation-card>
+        </div>
+    </div>
+</div>

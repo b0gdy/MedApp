@@ -1,0 +1,14 @@
+<a
+  style="cursor: pointer;"
+  [routerLink]="[consultation.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <!-- <h4 class="list-group-item-heading">consultation.id = {{ consultation.id }}</h4> -->
+    <p class="list-group-item-text">consultation.id = {{ consultation.id }}</p>
+    <p class="list-group-item-text">consultation.medicId = {{ consultation.medicId }}</p>
+    <p class="list-group-item-text">medic.userName = {{ medic?.userName }}</p>
+    <p class="list-group-item-text">consultation.pacientId = {{ consultation.pacientId }}</p>
+    <p class="list-group-item-text">pacient.userName = {{ pacient?.userName }}</p>
+  </div>
+</a>

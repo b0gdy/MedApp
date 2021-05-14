@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 import { MedicAccountService } from '../_services/medic-account.service';
+import { PacientAccountService } from '../_services/pacient-account.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +16,7 @@ export class NavComponent implements OnInit {
   model: any = {}
 
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService, 
-    public medicAccountService: MedicAccountService) { }
+    public medicAccountService: MedicAccountService, public pacientAccountService: PacientAccountService) { }
 
   ngOnInit(): void {
   }
@@ -47,4 +48,19 @@ export class NavComponent implements OnInit {
     this.medicAccountService.logoutMedic();
     this.router.navigateByUrl('/');
   }
+
+  loginPacient() {
+    this.pacientAccountService.loginPacient(this.model).subscribe(response => {
+      this.router.navigateByUrl('/pacient-detail');
+    }, error => {
+      console.log(error);
+      this.toastr.error(error.error);
+    })
+  }
+
+  logoutPacient() {
+    this.pacientAccountService.logoutPacient();
+    this.router.navigateByUrl('/');
+  }
+
 }

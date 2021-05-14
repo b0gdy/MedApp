@@ -3,12 +3,14 @@ using API.DTOs;
 using API.DTOs.PacientDTOs;
 using API.Entities;
 using API.Repositories.PacientRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PacientController : ControllerBase
     {
         public IPacientRepository IPacientRepository { get; set; }
@@ -46,16 +48,18 @@ namespace API.Controllers
                 UserName = value.UserName,
                 FirstName = value.FirstName,
                 LastName = value.LastName,
+                Gender = value.Gender,
+                BirthDate = value.BirthDate,
                 // Password = value.Password,
             };
             return IPacientRepository.Create(model);
         }
 
         // PUT: api/Provider/5
-        [HttpPut("{id}")]
-        public Pacient Put(int id, PacientDTO value)
+        [HttpPut]
+        public Pacient Put(PacientDTO value)
         {
-            Pacient model = IPacientRepository.Get(id);
+            Pacient model = IPacientRepository.Get(value.Id);
             if (value.UserName != null)
             {
                 model.UserName = value.UserName;
@@ -67,6 +71,14 @@ namespace API.Controllers
             if (value.LastName != null)
             {
                 model.LastName = value.LastName;
+            }
+            if (value.Gender != null)
+            {
+                model.Gender = value.Gender;
+            }
+            if (value.BirthDate != null)
+            {
+                model.BirthDate = value.BirthDate;
             }
             /*
             if (value.Password != null)

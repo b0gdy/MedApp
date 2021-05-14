@@ -3,4 +3,5 @@ export interface Consultation {
     treatment: string;
     medicId: number;
     pacientId: number;
+    created: Date;
 }

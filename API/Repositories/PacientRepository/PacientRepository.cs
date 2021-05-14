@@ -6,6 +6,7 @@ using API.DTOs.PacientDTOs;
 using API.Entities;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Repositories.PacientRepository
 {

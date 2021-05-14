@@ -1,0 +1,29 @@
+<div>
+    pacient id = {{pacient.id}}<br>
+    pacient userName = {{pacient.userName}}<br>
+    pacient firstName = {{pacient.firstName}}<br>
+    pacient lastName = {{pacient.lastName}}<br>
+    pacient gender = {{pacient.gender}}<br>
+    pacient birthDate = {{pacient.birthDate}}<br>
+    pacient token = {{pacient.token}}<br>
+</div>
+<hr>
+<div>
+    pacientMember id = {{pacientMember?.id}}<br>
+    pacientMember userName = {{pacientMember?.userName}}<br>
+    pacientMember firstName = {{pacientMember?.firstName}}<br>
+    pacientMember lastName = {{pacientMember?.lastName}}<br>
+    pacientMember gender = {{pacientMember?.gender}}<br>
+    pacientMember birthDate = {{pacientMember?.birthDate}}<br>
+</div>
+<div>
+    pacientMember consultations =<br>
+    <br>
+    <div *ngFor="let consultation of pacientMember?.consultations">
+        consultation.id = {{consultation.id}}<br>
+        consultation.treatment = {{consultation.treatment}}<br>
+        consultation.medicId = {{consultation.medicId}}<br>
+        consultation.pacientId = {{consultation.pacientId}}<br>
+        <br>
+    </div>
+</div>

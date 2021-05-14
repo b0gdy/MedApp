@@ -32,6 +32,9 @@ namespace API.Controllers
             {
                 Id = medicRegisterDTO.Id,
                 UserName = medicRegisterDTO.UserName.ToLower(),
+                FirstName = medicRegisterDTO.FirstName,
+                LastName = medicRegisterDTO.LastName,
+                Specialty = medicRegisterDTO.Specialty,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(medicRegisterDTO.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -43,6 +46,9 @@ namespace API.Controllers
             {
                 Id = medic.Id,
                 UserName = medic.UserName,
+                FirstName = medic.FirstName,
+                LastName = medic.LastName,
+                Specialty = medic.Specialty,
                 Token = _medicTokenService.CreateToken(medic)
             };
         }
@@ -69,6 +75,7 @@ namespace API.Controllers
                 UserName = medic.UserName,
                 FirstName = medic.FirstName,
                 LastName = medic.LastName,
+                Specialty = medic.Specialty,
                 Token = _medicTokenService.CreateToken(medic)
             };
         }

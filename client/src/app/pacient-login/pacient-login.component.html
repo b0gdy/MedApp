@@ -1,0 +1,23 @@
+<form #pacientLoginForm="ngForm" (ngSubmit)="loginPacient()" autocomplete="off">
+    <h2 class="text-center text-primary">Login Pacient</h2>
+    <hr>
+    <div class="form-group">
+        <input
+            name="username"
+            [(ngModel)]="model.username"
+            class="form-control"
+            type="search"
+            placeholder="Username Pacient">
+    </div>
+    <div class="form-group">
+        <input
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control"
+            type="password"
+            placeholder="Password Pacient">
+    </div>
+    <div class="form-group text-center">
+        <button class="btn btn-success mr-2" type="submit">Login Pacient</button>
+    </div>
+</form>

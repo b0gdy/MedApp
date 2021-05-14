@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-4">
+        <form #editPacientForm="ngForm" (ngSubmit)="editPacient(editPacientForm)" autocomplete="off">
+            <h2 class="text-center text-primary">Edit Pacient</h2>
+            <hr>
+            <div class="form-group">
+                <input 
+                    type="text"
+                    id="firstName"
+                    class="form-control" 
+                    name="firstName"
+                    placeholder="Pacient Firstname"
+                    [(ngModel)]="pacient.firstName"
+                    required
+                >
+            </div>
+            <div class="form-group">
+                <input 
+                    type="text"
+                    id="lastName"
+                    class="form-control" 
+                    name="lastName" 
+                    placeholder="Pacient Lastname"
+                    [(ngModel)]="pacient.lastName"
+                    required
+                >
+            </div>
+
+            <div class="form-group text-center">
+                <button 
+                    class="btn btn-success mr-2" 
+                    type="submit"
+                    [disabled]="!editPacientForm.valid">Edit Pacient</button>
+            </div>
+        </form>
+    </div>
+</div>

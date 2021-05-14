@@ -22,7 +22,14 @@ export class MedicDetailComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.loadMedic();
     this.loadMedicMember();
+  }
+
+  loadMedic() {
+    this.medicService.getMedic(this.medic.id).subscribe(medic => {
+      this.medic = medic;
+    })
   }
 
   loadMedicMember() {

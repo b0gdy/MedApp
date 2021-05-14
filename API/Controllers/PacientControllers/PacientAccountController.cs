@@ -30,7 +30,12 @@ namespace API.Controllers
 
             var pacient = new Pacient
             {
+                Id = pacientRegisterDTO.Id,
                 UserName = pacientRegisterDTO.UserName.ToLower(),
+                FirstName = pacientRegisterDTO.FirstName,
+                LastName = pacientRegisterDTO.LastName,
+                Gender = pacientRegisterDTO.Gender,
+                BirthDate = pacientRegisterDTO.BirthDate,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(pacientRegisterDTO.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -40,7 +45,12 @@ namespace API.Controllers
 
             return new PacientDTO
             {
+                Id = pacient.Id,
                 UserName = pacient.UserName,
+                FirstName = pacient.FirstName,
+                LastName = pacient.LastName,
+                Gender = pacient.Gender,
+                BirthDate = pacient.BirthDate,
                 Token = _pacientTokenService.CreateToken(pacient)
             };
         }
@@ -63,9 +73,12 @@ namespace API.Controllers
 
             return new PacientDTO
             {
+                Id = pacient.Id,
                 UserName = pacient.UserName,
                 FirstName = pacient.FirstName,
                 LastName = pacient.LastName,
+                Gender = pacient.Gender,
+                BirthDate = pacient.BirthDate,
                 Token = _pacientTokenService.CreateToken(pacient)
             };
         }

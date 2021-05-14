@@ -1,0 +1,73 @@
+<p>Create Consultation</p>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <form #addMedicineForm="ngForm" (ngSubmit)="addMedicine(addMedicineForm)" autocomplete="off">
+            <h2 class="text-center text-primary">Add Medicine</h2>
+            <hr>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    id="medicine"
+                    class="form-control" 
+                    name="medicine"
+                    placeholder="Medicine"
+                    [(ngModel)]="modelMedicine.medicine"
+                    required
+                >
+            </div>
+
+            <div class="form-group text-center">
+                <button 
+                    class="btn btn-success mr-2" 
+                    type="submit"
+                    [disabled]="!addMedicineForm.valid">Add Medicine</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- <div>
+        <p *ngFor="let medicine of medicines">{{ medicine }}</p>
+    </div> -->
+
+
+
+
+
+    <div class="col-4">
+        <form #createConsultationForm="ngForm" (ngSubmit)="createConsultation(createConsultationForm)" autocomplete="off">
+            <h2 class="text-center text-primary">Create Consultation</h2>
+            <hr>
+
+            <!-- <div class="form-group">
+                <input 
+                    type="text"
+                    id="treatment"
+                    class="form-control" 
+                    name="treatment"
+                    placeholder="Consultation Treatment"
+                    [(ngModel)]="model.treatment"
+                    required
+                >
+            </div> -->
+            <div class="form-group">
+                <input 
+                    type="text"
+                    id="pacientUsername"
+                    class="form-control" 
+                    name="pacientUsername" 
+                    placeholder="Consultation MedicUsername"
+                    [(ngModel)]="model.pacientUsername"
+                    required
+                >
+            </div>
+
+            <div class="form-group text-center">
+                <button 
+                    class="btn btn-success mr-2" 
+                    type="submit"
+                    [disabled]="!createConsultationForm.valid">Create Consultation</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -5,5 +5,6 @@ export interface MedicMember {
     userName: string;
     firstName: string;
     lastName: string;
+    specialty: string;
     consultations: Consultation[];
 }

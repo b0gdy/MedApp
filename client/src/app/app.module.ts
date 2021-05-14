@@ -20,6 +20,17 @@ import { MedicRegisterComponent } from './medic-register/medic-register.componen
 import { MedicDetailComponent } from './medic-detail/medic-detail.component';
 import { MedicLoginComponent } from './medic-login/medic-login.component';
 import { MedicEditComponent } from './medic-edit/medic-edit.component';
+import { MedicConsultationsComponent } from './medic-consultations/medic-consultations.component';
+import { ConsultationCardComponent } from './consultation-card/consultation-card.component';
+import { ConsultationDetailComponent } from './consultation-detail/consultation-detail.component';
+import { ConsultationListComponent } from './consultation-list/consultation-list.component';
+import { ConsultationCreateComponent } from './consultation-create/consultation-create.component';
+import { PacientLoginComponent } from './pacient-login/pacient-login.component';
+import { PacientRegisterComponent } from './pacient-register/pacient-register.component';
+import { PacientDetailComponent } from './pacient-detail/pacient-detail.component';
+import { PacientEditComponent } from './pacient-edit/pacient-edit.component';
+import { PacientConsultationsComponent } from './pacient-consultations/pacient-consultations.component';
+import { PacientConsultationsListComponent } from './pacient-consultations-list/pacient-consultations-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +45,18 @@ import { MedicEditComponent } from './medic-edit/medic-edit.component';
     MedicRegisterComponent,
     MedicDetailComponent,
     MedicLoginComponent,
-    MedicEditComponent
+    MedicEditComponent,
+    MedicConsultationsComponent,
+    ConsultationCardComponent,
+    ConsultationDetailComponent,
+    ConsultationListComponent,
+    ConsultationCreateComponent,
+    PacientLoginComponent,
+    PacientRegisterComponent,
+    PacientDetailComponent,
+    PacientEditComponent,
+    PacientConsultationsComponent,
+    PacientConsultationsListComponent
   ],
   imports: [
     BrowserModule,
