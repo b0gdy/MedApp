@@ -19,14 +19,12 @@ namespace API.Controllers
             IPacientRepository = repository;
         }
 
-        // GET: api/Provider
         [HttpGet]
         public ActionResult<IEnumerable<Pacient>> Get()
         {
             return IPacientRepository.GetAll();
         }
 
-        // GET: api/Provider/5
         [HttpGet("{id:int}")]
         public ActionResult<Pacient> Get(int id)
         {

@@ -1,15 +1,28 @@
 <form #registerMedicForm="ngForm" (ngSubmit)="registerMedic()" autocomplete="off">
-    <h2 class="text-center text-primary">Sign up Medic</h2>
+    <h2 class="text-center text-primary">Înscriere Medic</h2>
     <hr>
     <div class="form-group">
-        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username Medic">
+        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username Medic" required>
     </div>
 
     <div class="form-group">
-        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password Medic">
+        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Parolă Medic" required>
     </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" placeholder="Prenume Medic" required>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" placeholder="Nume Medic" required>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" name="specialty" [(ngModel)]="model.specialty" placeholder="Specialitate Medic" required>
+    </div>
+
     <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit">Register Medic</button>
-        <button class="btn btn-info mr-2" (click)="cancelMedic()" type="button">Cancel Medic</button>
+        <button class="btn btn-success mr-2" type="submit" [disabled]="!registerMedicForm.valid">Înscriere</button>
+        <button class="btn btn-info mr-2" (click)="cancelMedic()" type="button">Anulare</button>
     </div>
 </form>

@@ -1,24 +1,44 @@
-<!-- <div>
-    medicMember consultations =<br>
-    <br>
-    <div *ngFor="let consultation of consultations">
-        consultation.id = {{consultation?.id}}<br>
-        consultation.treatment = {{consultation?.treatment}}<br>
-        consultation.medicId = {{consultation?.medicId}}<br>
-        consultation.pacientId = {{consultation?.pacientId}}<br>
-        <br>
-    </div>
-</div> -->
-<div>
+<div class="container">
     <div class="row">
-        <div class="col-xs-12">
-            <!-- <app-consultation-card
-                *ngFor="let consultationEl of consultations; let i = index"
-                [consultation]="consultationEl"
-                [index]="i">
-            </app-consultation-card> -->
-            <app-consultation-card *ngFor="let consultationEl of consultations" 
-                [consultation]="consultationEl"></app-consultation-card>
+        <div class="col-8">
+            <form #searchBar="ngForm" (ngSubmit)="search(searchBar)" autocomplete="off">
+            <h2 class="text-center text-primary">Search Pacient</h2>
+            <hr>
+                <div class="form-group">
+                    <input 
+                        type="text"
+                        id="userName"
+                        class="form-control" 
+                        name="userName"
+                        placeholder="Pacient Username"
+                        [(ngModel)]="model.userName"
+                        required>
+                </div>
+                <div class="form-group text-center">
+                    <button 
+                        class="btn btn-success mr-2" 
+                        type="submit"
+                        [disabled]="!searchBar.valid">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="row">
+        <div class="col-8">
+            <h3 class="text-center text-primary">Consultations List</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div *ngIf="searched == true">
+        <div class="row">
+            <div class="col-8">
+                <app-consultation-card *ngFor="let consultationEl of consultations" 
+                    [consultation]="consultationEl"></app-consultation-card>
+            </div>
         </div>
     </div>
 </div>

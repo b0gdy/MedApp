@@ -1,3 +1,4 @@
+import { Appointment } from "./appointment";
 import { Consultation } from "./consultation";
 
 export interface PacientMember {
@@ -8,4 +9,5 @@ export interface PacientMember {
     gender: string;
     birthDate: string;
     consultations: Consultation[];
+    appointments: Appointment[];
 }

@@ -14,5 +14,6 @@ namespace API.Entities
         public byte[] PasswordSalt { get; set; }
 
         public List<Consultation> Consultations { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
 }

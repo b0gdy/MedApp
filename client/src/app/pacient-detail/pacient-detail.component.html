@@ -1,29 +1,29 @@
-<div>
-    pacient id = {{pacient.id}}<br>
-    pacient userName = {{pacient.userName}}<br>
-    pacient firstName = {{pacient.firstName}}<br>
-    pacient lastName = {{pacient.lastName}}<br>
-    pacient gender = {{pacient.gender}}<br>
-    pacient birthDate = {{pacient.birthDate}}<br>
-    pacient token = {{pacient.token}}<br>
-</div>
-<hr>
-<div>
-    pacientMember id = {{pacientMember?.id}}<br>
-    pacientMember userName = {{pacientMember?.userName}}<br>
-    pacientMember firstName = {{pacientMember?.firstName}}<br>
-    pacientMember lastName = {{pacientMember?.lastName}}<br>
-    pacientMember gender = {{pacientMember?.gender}}<br>
-    pacientMember birthDate = {{pacientMember?.birthDate}}<br>
-</div>
-<div>
-    pacientMember consultations =<br>
-    <br>
-    <div *ngFor="let consultation of pacientMember?.consultations">
-        consultation.id = {{consultation.id}}<br>
-        consultation.treatment = {{consultation.treatment}}<br>
-        consultation.medicId = {{consultation.medicId}}<br>
-        consultation.pacientId = {{consultation.pacientId}}<br>
-        <br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg">
+            <h1 class="text-center text-primary">Bun venit, {{pacient.firstName | titlecase}} {{pacient.lastName | titlecase}}!</h1>
+            <hr>
+            <br>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg"></div>
+        <div class="col-5">
+            <h3 class="text-primary">Date personale</h3>
+            <hr>
+            <div>
+                <p>Username:&emsp;{{pacient.userName | titlecase}}</p>
+                <p>Prenume:&emsp;{{pacient.firstName | titlecase}}</p>
+                <p>Nume:&emsp;{{pacient.lastName | titlecase}}</p>
+                <p>Sex:&emsp;{{pacient.gender}}</p>
+                <p>Data nașterii:&emsp;{{pacient.birthDate}}</p>
+            </div>
+        </div>
+        <div class="col-lg"></div>
+    </div>
+
 </div>
+
+

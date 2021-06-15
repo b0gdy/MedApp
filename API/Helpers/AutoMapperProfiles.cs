@@ -1,3 +1,4 @@
+using API.DTOs.AppointmentDTOs;
 using API.DTOs.ConsultationsDTOs;
 using API.DTOs.MedicDTOs;
 using API.DTOs.PacientDTOs;
@@ -12,8 +13,8 @@ namespace API.Helpers
         {
             CreateMap<Pacient, PacientMemberDTO>();
             CreateMap<Medic, MedicMemberDTO>();
-            // CreateMap<Pacient, PacientMemberDTO>();
             CreateMap<Consultation, ConsultationMemberDTO>();
+            CreateMap<Appointment, AppointmentMemberDTO>();
         }
     }
 }

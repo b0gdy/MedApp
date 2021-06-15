@@ -30,9 +30,11 @@
 
     <div *ngIf="!registerMode && ((medicAccountService.currentMedic$ | async) === null &&
         (pacientAccountService.currentPacient$ | async) === null)" style="text-align: center;">
-        <h1>Register</h1>
+        <br>
+        <h1>Înregistrare</h1>
+        <hr class="col-4">
         <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Înregistrare</button>
         </div>
     </div>
 
@@ -58,6 +60,7 @@
     </div>
 
     <div *ngIf="registerMode" class="container">
+        <br>
         <div class="row justify-content-center">
             <div class="col-4">
                 <app-pacient-register (cancelPacientRegister)="cancelRegisterMode($event)"></app-pacient-register>
@@ -71,11 +74,11 @@
     </div> -->
 
     <div *ngIf="!registerMode && (medicAccountService.currentMedic$ | async)">
-        <p>home-medic works!</p>
+        <app-medic-detail></app-medic-detail>
     </div>
 
     <div *ngIf="!registerMode && (pacientAccountService.currentPacient$ | async)">
-        <p>home-pacient works!</p>
+        <app-pacient-detail></app-pacient-detail>
     </div>
 
 </div>

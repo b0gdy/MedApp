@@ -15,6 +15,7 @@ import { MedicService } from '../_services/medic.service';
 export class MedicEditComponent implements OnInit {
   @ViewChild('editForm') editMedicForm: NgForm;
   medic: Medic;
+  model: any = {};
 
   constructor(private medicAccountService: MedicAccountService, private medicService: MedicService, 
     private toastr: ToastrService) {
@@ -26,19 +27,16 @@ export class MedicEditComponent implements OnInit {
   }
 
   editMedic(form: NgForm) {
-    // const id = this.medic.id;
-    // const username = this.medic.userName;
-    // const firstName = this.medic.firstName;
-    // const lastName = this.medic.lastName;
-    const firstName = this.medic.firstName;
-    // const lastName = form.value.lastName;
-    const lastName = this.medic.lastName;
-    const specialty = this.medic.specialty;
+    this.medic.firstName = this.model.firstName;
+    this.medic.lastName = this.model.lastName;
+    this.medic.specialty = this.model.specialty;
+    // console.log("pacient.firstName = ", this.medic.firstName);
+    // console.log("pacient.lastName = ", this.medic.lastName);
+    // console.log("medic.specialty = ", this.medic.specialty);
     this.medicService.editMedic(this.medic).subscribe(() => {
       this.toastr.success('Profile updated successfully');
+      this.loadMedic();
     })
-    // this.medic.firstName = "";
-    // this.medic.lastName = "";
     form.reset();
   }
 

@@ -21,20 +21,24 @@
         <ng-container *ngIf="medicAccountService.currentMedic$ | async">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink='/medic-detail' routerLinkActive='active'>Medic Detail</a>
+                    <!-- <a class="nav-link" routerLink='/medic-detail' routerLinkActive='active'>Medic Detail</a> -->
                 <li>
-                    <a class="nav-link" routerLink='/medic-consultations' routerLinkActive='active'>Consultations</a>
+                    <a class="nav-link" routerLink='/medic-consultations' routerLinkActive='active'>Consultații</a>
                 <li>
-                    <a class="nav-link" routerLink='/consultation-create' routerLinkActive='active'>Consultation Create</a>
+                    <a class="nav-link" routerLink='/consultation-create' routerLinkActive='active'>Creare consultații</a>
+                <li>
+                    <a class="nav-link" routerLink='/medic-appointments' routerLinkActive='active'>Programări</a>
             </ul>
         </ng-container>
 
         <ng-container *ngIf="pacientAccountService.currentPacient$ | async">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink='/pacient-detail' routerLinkActive='active'>Pacient Detail</a>
+                    <!-- <a class="nav-link" routerLink='/pacient-detail' routerLinkActive='active'>Pacient Detail</a> -->
                 <li>
-                    <a class="nav-link" routerLink='/pacient-consultations' routerLinkActive='active'>Consultations</a>
+                    <a class="nav-link" routerLink='/pacient-consultations' routerLinkActive='active'>Consultații</a>
+                <li>
+                    <a class="nav-link" routerLink='/pacient-appointments' routerLinkActive='active'>Programări</a>
             </ul>
         </ng-container>
 
@@ -50,20 +54,20 @@
         -->
 
         <div class="dropdown" *ngIf="(medicAccountService.currentMedic$ | async) as medic" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{medic.userName | titlecase}}</a>
+            <a class="dropdown-toggle text-light" dropdownToggle>Bun venit, dr.{{medic.userName | titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
-                <a class="dropdown-item" routerLink='/medic-edit'>Edit Medic</a>
+                <a class="dropdown-item" routerLink='/medic-edit'>Editare medic</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="logoutMedic()">Logout</a>
+                <a class="dropdown-item" (click)="logoutMedic()">Deconectare</a>
             </div>
         </div>
 
         <div class="dropdown" *ngIf="(pacientAccountService.currentPacient$ | async) as pacient" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{pacient.userName | titlecase}}</a>
+            <a class="dropdown-toggle text-light" dropdownToggle>Bun venit, {{pacient.userName | titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
-                <a class="dropdown-item" routerLink='/pacient-edit'>Edit Pacient</a>
+                <a class="dropdown-item" routerLink='/pacient-edit'>Editare pacient</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="logoutPacient()">Logout</a>
+                <a class="dropdown-item" (click)="logoutPacient()">Deconectare</a>
             </div>
         </div>
 

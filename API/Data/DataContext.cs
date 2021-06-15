@@ -13,5 +13,6 @@ namespace API.Data
         public DbSet<Pacient> Pacients { get; set; }
         public DbSet<Medic> Medics { get; set; }
         public DbSet<Consultation> Consultations { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }

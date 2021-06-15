@@ -1,73 +1,83 @@
-<p>Create Consultation</p>
-<div class="row justify-content-center">
-    <div class="col-4">
-        <form #addMedicineForm="ngForm" (ngSubmit)="addMedicine(addMedicineForm)" autocomplete="off">
-            <h2 class="text-center text-primary">Add Medicine</h2>
-            <hr>
-
-            <div class="form-group">
-                <input 
-                    type="text"
-                    id="medicine"
-                    class="form-control" 
-                    name="medicine"
-                    placeholder="Medicine"
-                    [(ngModel)]="modelMedicine.medicine"
-                    required
-                >
+<div class="container">
+    <form #createConsultationForm="ngForm" (ngSubmit)="createConsultation(createConsultationForm)" autocomplete="off">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <form #addMedicineForm="ngForm" (ngSubmit)="addMedicine(addMedicineForm)" autocomplete="off">
+                    <h2 class="text-center text-primary">Adăugare medicament</h2>
+                    <hr>
+                    <div class="form-group">
+                        <input 
+                            type="text"
+                            id="medicine"
+                            class="form-control" 
+                            name="medicine"
+                            placeholder="Medicament"
+                            [(ngModel)]="modelMedicine.medicine"
+                            required
+                        >
+                    </div>
+                    <div class="form-group text-center">
+                        <button 
+                            class="btn btn-success mr-2" 
+                            type="submit"
+                            [disabled]="!addMedicineForm.valid">Adăugare</button>
+                    </div>
+                </form>
             </div>
+        </div>
 
-            <div class="form-group text-center">
-                <button 
-                    class="btn btn-success mr-2" 
-                    type="submit"
-                    [disabled]="!addMedicineForm.valid">Add Medicine</button>
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h3 class="text-center text-primary">Listă medicamente</h3>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let medicine of medicines">Medicament:&emsp;{{ medicine }}</li>
+                </ul>
             </div>
-        </form>
-    </div>
+        </div>
 
-    <!-- <div>
-        <p *ngFor="let medicine of medicines">{{ medicine }}</p>
-    </div> -->
+        <br>
 
-
-
-
-
-    <div class="col-4">
-        <form #createConsultationForm="ngForm" (ngSubmit)="createConsultation(createConsultationForm)" autocomplete="off">
-            <h2 class="text-center text-primary">Create Consultation</h2>
-            <hr>
-
-            <!-- <div class="form-group">
-                <input 
-                    type="text"
-                    id="treatment"
-                    class="form-control" 
-                    name="treatment"
-                    placeholder="Consultation Treatment"
-                    [(ngModel)]="model.treatment"
-                    required
-                >
-            </div> -->
-            <div class="form-group">
-                <input 
-                    type="text"
-                    id="pacientUsername"
-                    class="form-control" 
-                    name="pacientUsername" 
-                    placeholder="Consultation MedicUsername"
-                    [(ngModel)]="model.pacientUsername"
-                    required
-                >
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <form #selectPacientForm="ngForm" (ngSubmit)="selectPacient(selectPacientForm)" autocomplete="off">
+                    <h2 class="text-center text-primary">Selectare pacient</h2>
+                    <hr>
+                    <div class="form-group">
+                        <input 
+                            type="text"
+                            id="pacientUsername"
+                            class="form-control" 
+                            name="pacientUsername" 
+                            placeholder="Pacient Username"
+                            [(ngModel)]="modelPacient.userName"
+                            required>
+                    </div>
+                    <div class="form-group text-center">
+                        <button 
+                            class="btn btn-success mr-2" 
+                            type="submit"
+                            [disabled]="!selectPacientForm.valid">Selectare</button>
+                    </div>
+                </form>
             </div>
+        </div>
 
-            <div class="form-group text-center">
-                <button 
-                    class="btn btn-success mr-2" 
-                    type="submit"
-                    [disabled]="!createConsultationForm.valid">Create Consultation</button>
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h2 class="text-center text-primary">Creare consultație</h2>
+                <hr>
+                <div class="form-group text-center">
+                    <button 
+                        class="btn btn-success mr-2" 
+                        type="submit"
+                        [disabled]="!valid1 || !valid2">Creare</button>
+                </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>

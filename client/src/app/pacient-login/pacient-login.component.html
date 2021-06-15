@@ -1,5 +1,5 @@
 <form #pacientLoginForm="ngForm" (ngSubmit)="loginPacient()" autocomplete="off">
-    <h2 class="text-center text-primary">Login Pacient</h2>
+    <h2 class="text-center text-primary">Autentificare Pacient</h2>
     <hr>
     <div class="form-group">
         <input
@@ -7,7 +7,8 @@
             [(ngModel)]="model.username"
             class="form-control"
             type="search"
-            placeholder="Username Pacient">
+            placeholder="Username Pacient"
+            required>
     </div>
     <div class="form-group">
         <input
@@ -15,9 +16,13 @@
             [(ngModel)]="model.password"
             class="form-control"
             type="password"
-            placeholder="Password Pacient">
+            placeholder="Parolă Pacient"
+            required>
     </div>
     <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit">Login Pacient</button>
+        <button 
+            class="btn btn-success mr-2" 
+            type="submit"
+            [disabled]="!pacientLoginForm.valid">Autentificare</button>
     </div>
 </form>

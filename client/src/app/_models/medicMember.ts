@@ -1,3 +1,4 @@
+import { Appointment } from "./appointment";
 import { Consultation } from "./consultation";
 
 export interface MedicMember {
@@ -7,4 +8,5 @@ export interface MedicMember {
     lastName: string;
     specialty: string;
     consultations: Consultation[];
+    appointments: Appointment[];
 }

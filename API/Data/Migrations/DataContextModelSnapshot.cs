@@ -36,6 +36,30 @@ namespace API.Data.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("API.Entities.Appointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MedicId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PacientId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MedicId");
+
+                    b.HasIndex("PacientId");
+
+                    b.ToTable("Appointments");
+                });
+
             modelBuilder.Entity("API.Entities.Consultation", b =>
                 {
                     b.Property<int>("Id")
@@ -124,6 +148,25 @@ namespace API.Data.Migrations
                     b.ToTable("Pacients");
                 });
 
+            modelBuilder.Entity("API.Entities.Appointment", b =>
+                {
+                    b.HasOne("API.Entities.Medic", "Medic")
+                        .WithMany("Appointments")
+                        .HasForeignKey("MedicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.Entities.Pacient", "Pacient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("PacientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Medic");
+
+                    b.Navigation("Pacient");
+                });
+
             modelBuilder.Entity("API.Entities.Consultation", b =>
                 {
                     b.HasOne("API.Entities.Medic", "Medic")
@@ -145,11 +188,15 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Medic", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Consultations");
                 });
 
             modelBuilder.Entity("API.Entities.Pacient", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("Consultations");
                 });
 #pragma warning restore 612, 618

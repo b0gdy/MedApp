@@ -31,6 +31,13 @@ import { PacientDetailComponent } from './pacient-detail/pacient-detail.componen
 import { PacientEditComponent } from './pacient-edit/pacient-edit.component';
 import { PacientConsultationsComponent } from './pacient-consultations/pacient-consultations.component';
 import { PacientConsultationsListComponent } from './pacient-consultations-list/pacient-consultations-list.component';
+import { PacientAppointmentsComponent } from './pacient-appointments/pacient-appointments.component';
+import { PacientAppointmentsListComponent } from './pacient-appointments-list/pacient-appointments-list.component';
+import { PacientAppointmentCardComponent } from './pacient-appointment-card/pacient-appointment-card.component';
+import { PacientAppointmentCreateComponent } from './pacient-appointment-create/pacient-appointment-create.component';
+import { MedicAppointmentsComponent } from './medic-appointments/medic-appointments.component';
+import { MedicAppointmentsListComponent } from './medic-appointments-list/medic-appointments-list.component';
+import { MedicAppointmentCardComponent } from './medic-appointment-card/medic-appointment-card.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +63,14 @@ import { PacientConsultationsListComponent } from './pacient-consultations-list/
     PacientDetailComponent,
     PacientEditComponent,
     PacientConsultationsComponent,
-    PacientConsultationsListComponent
+    PacientConsultationsListComponent,
+    PacientAppointmentsComponent,
+    PacientAppointmentsListComponent,
+    PacientAppointmentCardComponent,
+    PacientAppointmentCreateComponent,
+    MedicAppointmentsComponent,
+    MedicAppointmentsListComponent,
+    MedicAppointmentCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Extensions;
 using API.Interfaces;
+using API.Repositories.AppointmentRepository;
 using API.Repositories.ConsultationRepository;
 using API.Repositories.MedicRepository;
 using API.Repositories.PacientRepository;
@@ -48,6 +49,7 @@ namespace API
             services.AddTransient<IPacientRepository, PacientRepository>();
             services.AddTransient<IMedicRepository, MedicRepository>();
             services.AddTransient<IConsultationRepository, ConsultationRepository>();
+            services.AddTransient<IAppointmentRepository, AppointmentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

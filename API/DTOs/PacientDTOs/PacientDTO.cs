@@ -8,7 +8,6 @@ namespace API.DTOs.PacientDTOs
         public string LastName { get; set; }
         public string Gender { get; set; }
         public string BirthDate { get; set; }
-        //public string Password { get; set; }
         public string Token { get; set; }
     }
 }

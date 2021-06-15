@@ -1,36 +1,43 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <form #editPacientForm="ngForm" (ngSubmit)="editPacient(editPacientForm)" autocomplete="off">
-            <h2 class="text-center text-primary">Edit Pacient</h2>
+            <h2 class="text-center text-primary">Editare pacient</h2>
             <hr>
+            
+            <p>Prenume:&emsp;{{pacient.firstName}}</p>
             <div class="form-group">
-                <input 
-                    type="text"
-                    id="firstName"
-                    class="form-control" 
-                    name="firstName"
-                    placeholder="Pacient Firstname"
-                    [(ngModel)]="pacient.firstName"
-                    required
-                >
+                <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" placeholder="Prenume Pacient" required>
             </div>
+            <hr>
+        
+            <p>Nume:&emsp;{{pacient.lastName}}</p>
             <div class="form-group">
-                <input 
-                    type="text"
-                    id="lastName"
-                    class="form-control" 
-                    name="lastName" 
-                    placeholder="Pacient Lastname"
-                    [(ngModel)]="pacient.lastName"
-                    required
-                >
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" placeholder="Nume Pacient" required>
             </div>
+            <hr>
+        
+            <p>Sex:&emsp;{{pacient.gender}}</p>
+            <div class="form-group text-center">
+                <input type="radio" class="form-control-input" name="gender" value="masculin" [(ngModel)]="model.gender" required>
+                <label class="form-control-label" for="masculin">&nbsp;masculin&emsp;</label>
+                <input type="radio" class="form-control-input" name="gender" value="feminin" [(ngModel)]="model.gender" required>
+                <label class="form-control-label" for="feminin">&nbsp;feminin</label>
+            </div>
+            <hr>
+        
+            <!-- <p>currentDate = {{ currentDate | date:'EEEE, dd MMMM, yyyy - HH:mm:ss' }}</p> -->
+        
+            <p>Data nașterii:&emsp;{{pacient.birthDate}}</p>
+            <div class="form-group">
+                <input type="date" class="form-control" name="birthDate" max="{{currentDate|date:'yyyy-MM-dd'}}" [(ngModel)]="model.birthDate" placeholder="BirthDate Pacient" required>
+            </div>
+            <hr>
 
             <div class="form-group text-center">
                 <button 
                     class="btn btn-success mr-2" 
                     type="submit"
-                    [disabled]="!editPacientForm.valid">Edit Pacient</button>
+                    [disabled]="!editPacientForm.valid">Editare</button>
             </div>
         </form>
     </div>

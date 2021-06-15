@@ -1,16 +1,19 @@
-<div class="row">
-    <div class="col-xs-12">
-      <!-- <h1>consultation.id = {{ consultation?.id }}</h1> -->
-      <p>consultation.id = {{ consultation?.id }}</p>
-      <p>consultation.treatment = {{ consultation?.treatment }}</p>
-      <p>consultation.medicId = {{ consultation?.medicId }}</p>
-      <p>medic.userName = {{ medic?.userName }}</p>
-      <p>medic.Name = {{ medic?.firstName }} {{medic?.lastName}}</p>
-      <p>consultation.pacientId = {{consultation?.pacientId}}</p>
-      <p>pacient.userName = {{ pacient?.userName }}</p>
-      <p>pacient.Name = {{ pacient?.firstName }} {{pacient?.lastName}}</p>
-      <p>consultation.created = {{consultation?.created | date:'EEEE, dd MMMM, YYYY - HH:mm:SS'}}</p>
-      <p>medicines = {{ medicines }}</p>
-      <p *ngFor="let medicine of medicines">medicine = {{ medicine }}</p>
-    </div>
+<div class="container">
+  <div class="row">
+      <div class="col-lg">
+        <!-- <p>consultation.id = {{ consultation?.id }}</p> -->
+        <!-- <p>consultation.treatment = {{ consultation?.treatment }}</p> -->
+        <!-- <p>consultation.medicId = {{ consultation?.medicId }}</p> -->
+        <!-- <p>medic.userName = {{ medic?.userName }}</p> -->
+        <p>Medic:&emsp;{{ medic?.firstName }} {{medic?.lastName}}</p>
+        <!-- <p>consultation.pacientId = {{consultation?.pacientId}}</p> -->
+        <!-- <p>pacient.userName = {{ pacient?.userName }}</p> -->
+        <p>Pacient:&emsp;{{ pacient?.firstName }} {{pacient?.lastName}}</p>
+        <p>Data:&emsp;{{consultation?.created | date:'EEEE, dd MMMM, YYYY - HH:mm:SS'}}</p>
+        <!-- <p>medicines = {{ medicines }}</p> -->
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let medicine of medicines">Medicament:&emsp;{{ medicine }}</li>
+        </ul>
+      </div>
   </div>
+</div>

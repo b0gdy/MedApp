@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <h1 class="text-center text-primary">Appointments List</h1>
+            <hr class="col-6">
+            <h6 class="text-center text-primary">Today:&emsp;{{ currentDate | date:'EEEE, dd MMMM, YYYY'}}</h6>
+            <hr>
+            <br>
+            <app-medic-appointment-card *ngFor="let appointmentEl of appointments" 
+                [appointment]="appointmentEl"></app-medic-appointment-card>
+        </div>
+    </div>
+</div>

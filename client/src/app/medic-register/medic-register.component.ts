@@ -17,6 +17,11 @@ export class MedicRegisterComponent implements OnInit {
   }
 
   registerMedic() {
+    // console.log("model.username = ", this.model.username);
+    // console.log("model.password = ", this.model.password);
+    // console.log("model.firstname = ", this.model.firstname);
+    // console.log("model.lastname = ", this.model.lastname);
+    // console.log("model.specialty = ", this.model.specialty);
     this.medicAccountService.registerMedic(this.model).subscribe(response => {
       console.log(response);
       this.cancelMedic();

@@ -3,69 +3,45 @@
         <form #editMedicForm="ngForm" (ngSubmit)="editMedic(editMedicForm)" autocomplete="off">
             <h2 class="text-center text-primary">Edit Medic</h2>
             <hr>
+            
+            <p>Firstname Medic:&emsp;{{medic.firstName}}</p>
             <div class="form-group">
-                <!--
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    name="username"
-                    [(ngModel)]="medic.firstName"
-                    placeholder="Medic Firstname"
-                    required
-                >
-                -->
                 <input 
                     type="text"
                     id="firstName"
                     class="form-control" 
                     name="firstName"
                     placeholder="Medic Firstname"
-                    [(ngModel)]="medic.firstName"
-                    required
-                >
+                    [(ngModel)]="model.firstName"
+                    required>
             </div>
+            <hr>
+
+            <p>Lastname Medic:&emsp;{{medic.lastName}}</p>
             <div class="form-group">
-                <!--
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    name="username" 
-                    [(ngModel)]="medic.lastName" 
-                    placeholder="Medic Lastname"
-                    required
-                >
-                -->
                 <input 
                     type="text"
                     id="lastName"
                     class="form-control" 
                     name="lastName" 
                     placeholder="Medic Lastname"
-                    [(ngModel)]="medic.lastName"
-                    required
-                >
+                    [(ngModel)]="model.lastName"
+                    required>
             </div>
+            <hr>
+
+            <p>Specialty Medic:&emsp;{{medic.specialty}}</p>
             <div class="form-group">
-                <!--
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    name="username" 
-                    [(ngModel)]="medic.specialty" 
-                    placeholder="Medic specialty"
-                    required
-                >
-                -->
                 <input 
                     type="text"
                     id="specialty"
                     class="form-control" 
                     name="specialty" 
                     placeholder="Medic specialty"
-                    [(ngModel)]="medic.specialty"
-                    required
-                >
+                    [(ngModel)]="model.specialty"
+                    required>
             </div>
+            <hr>
 
             <div class="form-group text-center">
                 <button 

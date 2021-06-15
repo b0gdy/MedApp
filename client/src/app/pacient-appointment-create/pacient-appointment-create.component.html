@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+
+    <div class="col-8">
+        <form #createAppointmentForm="ngForm" (ngSubmit)="createAppointment(createAppointmentForm)" autocomplete="off">
+            <h2 class="text-center text-primary">Creare programare</h2>
+            <hr>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    id="medicUsername"
+                    class="form-control" 
+                    name="medicUsername" 
+                    placeholder="Medic Username"
+                    [(ngModel)]="modelMedic"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="date"
+                    id="date"
+                    class="form-control" 
+                    name="date" 
+                    placeholder="Appointment Date"
+                    min="{{this.tomorrow|date:'yyyy-MM-dd'}}"
+                    [(ngModel)]="modelDate"
+                    required
+                >
+            </div>
+
+            <div class="form-group text-center">
+                <label for="hour">Ora&nbsp;</label>
+                <select class="custom-form-control"
+                        id="hour" 
+                        name="hour"
+                        [(ngModel)]="modelHour"
+                        required>
+                    <option *ngFor="let Hour of Hours" [value]="Hour">{{Hour}}</option>
+                </select>
+                <label for="minute">&emsp;și&emsp;Minute&nbsp;</label>
+                <select class="custom-form-control"
+                        id="minute" 
+                        name="minute"
+                        [(ngModel)]="modelMinute"
+                        required>
+                    <option *ngFor="let Minute of Minutes" [value]="Minute">{{Minute}}</option>
+                </select>
+            </div>
+
+            <div class="form-group text-center">
+                <button 
+                    class="btn btn-success mr-2" 
+                    type="submit"
+                    [disabled]="!createAppointmentForm.valid">Creare</button>
+            </div>
+        </form>
+    </div>
+</div>

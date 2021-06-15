@@ -14,6 +14,8 @@ import { PacientService } from '../_services/pacient.service';
 export class PacientEditComponent implements OnInit {
   @ViewChild('editForm') editPacientForm: NgForm;
   pacient: Pacient;
+  model: any = {};
+  currentDate: number = Date.now();
 
   constructor(private pacientAccountService: PacientAccountService, private pacientService: PacientService, 
     private toastr: ToastrService) {
@@ -25,10 +27,18 @@ export class PacientEditComponent implements OnInit {
   }
 
   editPacient(form: NgForm) {
-    const firstName = this.pacient.firstName;
-    const lastName = this.pacient.lastName;
+
+    this.pacient.firstName = this.model.firstName;
+    this.pacient.lastName = this.model.lastName;
+    this.pacient.gender = this.model.gender;
+    this.pacient.birthDate = this.model.birthDate;
+    // console.log("pacient.firstName = ", this.pacient.firstName);
+    // console.log("pacient.lastName = ", this.pacient.lastName);
+    // console.log("pacient.gender = ", this.pacient.gender);
+    // console.log("pacient.birthDate = ", this.pacient.birthDate);
     this.pacientService.editPacient(this.pacient).subscribe(() => {
       this.toastr.success('Profile updated successfully');
+      this.loadPacient();
     })
     form.reset();
   }
