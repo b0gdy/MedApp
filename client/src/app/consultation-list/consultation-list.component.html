@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-8">
             <form #searchBar="ngForm" (ngSubmit)="search(searchBar)" autocomplete="off">
-            <h2 class="text-center text-primary">Search Pacient</h2>
+            <h2 class="text-center text-primary">Căutare pacient</h2>
             <hr>
                 <div class="form-group">
                     <input 
@@ -18,7 +18,7 @@
                     <button 
                         class="btn btn-success mr-2" 
                         type="submit"
-                        [disabled]="!searchBar.valid">Search</button>
+                        [disabled]="!searchBar.valid">Căutare</button>
                 </div>
             </form>
         </div>
@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col-8">
-            <h3 class="text-center text-primary">Consultations List</h3>
+            <h3 class="text-center text-primary">Listă consultații</h3>
             <hr>
         </div>
     </div>

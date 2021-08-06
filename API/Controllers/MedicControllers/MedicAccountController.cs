@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<MedicDTO>> Register(MedicRegisterDTO medicRegisterDTO)
         {
-            if (await MedicExists(medicRegisterDTO.UserName)) return BadRequest("Username is taken");
+            if (await MedicExists(medicRegisterDTO.UserName)) return BadRequest("Username folosit!");
 
             using var hmac = new HMACSHA512();
 
@@ -58,7 +58,7 @@ namespace API.Controllers
         {
             var medic = await _context.Medics.SingleOrDefaultAsync(x => x.UserName == medicLoginDTO.UserName.ToLower());
 
-            if (medic == null) return Unauthorized("Invalid username");
+            if (medic == null) return Unauthorized("Username invalid!");
 
             using var hmac = new HMACSHA512(medic.PasswordSalt);
 
@@ -66,7 +66,7 @@ namespace API.Controllers
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != medic.PasswordHash[i]) return Unauthorized("Invalid password");
+                if (computedHash[i] != medic.PasswordHash[i]) return Unauthorized("Parolă invalidă!");
             }
 
             return new MedicDTO

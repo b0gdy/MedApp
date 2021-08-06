@@ -58,10 +58,10 @@ export class ConsultationCreateComponent implements OnInit {
     this.pacientMemberService.getPacientMember(this.modelPacient.userName).subscribe(respone => {
       this.pacientMember = respone;
       if (this.pacientMember == null) {
-        this.toastr.error('Pacient Username does not exits!');
+        this.toastr.error('Username incorect!');
         this.valid2=false;
       } else {
-        this.toastr.success('Pacient selected successfully');
+        this.toastr.success('Pacient găsit!');
         this.model.pacientId = this.pacientMember.id;
         console.log("this.model.pacientId = " + this.model.pacientId);
         this.valid2=true;
@@ -86,7 +86,7 @@ export class ConsultationCreateComponent implements OnInit {
     console.log(this.model)
     this.consultationService.createConsultation(this.model).subscribe(response => {
       console.log(response);
-      this.toastr.success('Consultation created successfully')
+      this.toastr.success('Consultație creată!')
           console.log(response);
     }, error => {
       console.log(error);

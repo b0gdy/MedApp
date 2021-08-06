@@ -1,13 +1,48 @@
 <div class="container">
     <div class="row">
         <div class="col-lg">
-            <h1 class="text-center text-primary">Appointments List</h1>
+            <h1 class="text-center text-primary">Listă programări</h1>
             <hr class="col-6">
-            <h6 class="text-center text-primary">Today:&emsp;{{ currentDate | date:'EEEE, dd MMMM, YYYY'}}</h6>
+            <h6 class="text-center text-primary">Data de azi:&emsp;{{ currentDate | date:'EEEE, dd MMMM, YYYY'}}</h6>
             <hr>
             <br>
+
+            <div class="row justify-content-center">
+
+                <div class="col-4">
+                    <form #selectDateForm="ngForm" (ngSubmit)="selectDate(selectDateForm)" autocomplete="off">
+                        <h2 class="text-center text-primary">Selectare Dată</h2>
+                        <hr>
+            
+                        <div class="form-group">
+                            <input 
+                                type="date"
+                                id="date"
+                                class="form-control" 
+                                name="date" 
+                                placeholder="Selectare Dată"
+                                [(ngModel)]="modelDate"
+                                required
+                            >
+                        </div>
+            
+                        <div class="form-group text-center">
+                            <button 
+                                class="btn btn-success mr-2" 
+                                type="submit"
+                                [disabled]="!selectDateForm.valid">Selectare</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+            <br>
+
             <app-medic-appointment-card *ngFor="let appointmentEl of appointments" 
-                [appointment]="appointmentEl"></app-medic-appointment-card>
+                [appointment]="appointmentEl">
+            </app-medic-appointment-card>
+
         </div>
     </div>
 </div>

@@ -37,7 +37,7 @@ export class PacientEditComponent implements OnInit {
     // console.log("pacient.gender = ", this.pacient.gender);
     // console.log("pacient.birthDate = ", this.pacient.birthDate);
     this.pacientService.editPacient(this.pacient).subscribe(() => {
-      this.toastr.success('Profile updated successfully');
+      this.toastr.success('Profil actualizat!');
       this.loadPacient();
     })
     form.reset();

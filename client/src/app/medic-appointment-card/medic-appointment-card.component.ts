@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Appointment } from '../_models/appointment';
 import { Medic } from '../_models/medic';
 import { Pacient } from '../_models/pacient';
@@ -24,15 +25,15 @@ export class MedicAppointmentCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentDate = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
-    console.log("currentDate  = ", this.currentDate);
+    // console.log("currentDate  = ", this.currentDate);
     this.loadMedic();
     this.loadPacient();
     this.dateAux = this.appointment.date.substr(this.appointment.date.length - 16);
-    console.log("dateAux= ", this.dateAux);
+    // console.log("dateAux= ", this.dateAux);
     this.date = this.dateAux.substr(0, 10);
-    console.log("date = ", this.date);
+    // console.log("date = ", this.date);
     this.hour = this.dateAux.substr(this.dateAux.length - 5);
-    console.log("hour = ", this.hour);
+    // console.log("hour = ", this.hour);
   }
 
   loadMedic() {

@@ -10,6 +10,7 @@ import { MedicAccountService } from '../_services/medic-account.service';
 export class MedicRegisterComponent implements OnInit {
   @Output() cancelMedicRegister = new EventEmitter();
   model: any = {};
+  Specialties: string[] = ["Medicină de familie", "Cardiologie", "Dermatovenerologie", "Neurologie", "Pediatrie"];
 
   constructor(private medicAccountService: MedicAccountService, private toastr: ToastrService) { }
 

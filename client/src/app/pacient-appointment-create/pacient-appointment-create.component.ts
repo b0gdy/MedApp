@@ -82,7 +82,7 @@ export class PacientAppointmentCreateComponent implements OnInit {
         console.log("model.date = " + this.model.date);
         this.appointmentServcie.registerAppointment(this.model).subscribe(response => {
           console.log(response);
-          this.toastr.success('Appointment created!');
+          this.toastr.success('Programare creată!');
         }, error => {
           console.log(error);
           this.toastr.error(error.error);

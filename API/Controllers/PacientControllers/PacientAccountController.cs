@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<PacientDTO>> Register(PacientRegisterDTO pacientRegisterDTO)
         {
-            if (await PacientExists(pacientRegisterDTO.UserName)) return BadRequest("Username is taken");
+            if (await PacientExists(pacientRegisterDTO.UserName)) return BadRequest("Username folosit!");
 
             using var hmac = new HMACSHA512();
 
@@ -60,7 +60,7 @@ namespace API.Controllers
         {
             var pacient = await _context.Pacients.SingleOrDefaultAsync(x => x.UserName == pacientLoginDTO.UserName.ToLower());
 
-            if (pacient == null) return Unauthorized("Invalid username");
+            if (pacient == null) return Unauthorized("Username invalid!");
 
             using var hmac = new HMACSHA512(pacient.PasswordSalt);
 
@@ -68,7 +68,7 @@ namespace API.Controllers
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != pacient.PasswordHash[i]) return Unauthorized("Invalid password");
+                if (computedHash[i] != pacient.PasswordHash[i]) return Unauthorized("Parolă invalidă!");
             }
 
             return new PacientDTO

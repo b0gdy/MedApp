@@ -65,9 +65,9 @@ export class ConsultationListComponent implements OnInit {
     this.pacientMemberService.getPacientMember(this.model.userName).subscribe(pacientMember => {
       this.pacientMember = pacientMember;
       if (this.pacientMember == null) {
-        this.toastr.error('Pacient Username does not exits!');
+        this.toastr.error('Username incorect!');
       } else {
-        this.toastr.success('Pacient found!');
+        this.toastr.success('Pacient găsit!');
         this.consultations = [...this.pacientMember.consultations];
       }
     })

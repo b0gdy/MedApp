@@ -34,7 +34,7 @@ export class MedicEditComponent implements OnInit {
     // console.log("pacient.lastName = ", this.medic.lastName);
     // console.log("medic.specialty = ", this.medic.specialty);
     this.medicService.editMedic(this.medic).subscribe(() => {
-      this.toastr.success('Profile updated successfully');
+      this.toastr.success('Profil actualizat!');
       this.loadMedic();
     })
     form.reset();

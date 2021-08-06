@@ -17,8 +17,19 @@
         <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" placeholder="Nume Medic" required>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <input type="text" class="form-control" name="specialty" [(ngModel)]="model.specialty" placeholder="Specialitate Medic" required>
+    </div> -->
+
+    <div class="form-group">
+        <label for="specialty">Specialitate:&nbsp;</label>
+            <select class="custom-form-control"
+                        id="specialty" 
+                        name="specialty"
+                        [(ngModel)]="model.specialty"
+                        required>
+                    <option *ngFor="let Specialty of Specialties" [value]="Specialty">{{Specialty}}</option>
+            </select>
     </div>
 
     <div class="form-group text-center">

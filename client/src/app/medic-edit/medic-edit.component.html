@@ -1,43 +1,43 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <form #editMedicForm="ngForm" (ngSubmit)="editMedic(editMedicForm)" autocomplete="off">
-            <h2 class="text-center text-primary">Edit Medic</h2>
+            <h2 class="text-center text-primary">Editare medic</h2>
             <hr>
             
-            <p>Firstname Medic:&emsp;{{medic.firstName}}</p>
+            <p>Prenume:&emsp;{{medic.firstName}}</p>
             <div class="form-group">
                 <input 
                     type="text"
                     id="firstName"
                     class="form-control" 
                     name="firstName"
-                    placeholder="Medic Firstname"
+                    placeholder="Prenume Medic"
                     [(ngModel)]="model.firstName"
                     required>
             </div>
             <hr>
 
-            <p>Lastname Medic:&emsp;{{medic.lastName}}</p>
+            <p>Nume:&emsp;{{medic.lastName}}</p>
             <div class="form-group">
                 <input 
                     type="text"
                     id="lastName"
                     class="form-control" 
                     name="lastName" 
-                    placeholder="Medic Lastname"
+                    placeholder="Nume Medic"
                     [(ngModel)]="model.lastName"
                     required>
             </div>
             <hr>
 
-            <p>Specialty Medic:&emsp;{{medic.specialty}}</p>
+            <p>Specialitate:&emsp;{{medic.specialty}}</p>
             <div class="form-group">
                 <input 
                     type="text"
                     id="specialty"
                     class="form-control" 
                     name="specialty" 
-                    placeholder="Medic specialty"
+                    placeholder="Specialitate Medic"
                     [(ngModel)]="model.specialty"
                     required>
             </div>
@@ -47,7 +47,7 @@
                 <button 
                     class="btn btn-success mr-2" 
                     type="submit"
-                    [disabled]="!editMedicForm.valid">Edit Medic</button>
+                    [disabled]="!editMedicForm.valid">Editare</button>
             </div>
         </form>
     </div>

@@ -1,19 +1,20 @@
-<div *ngIf="date == currentDate">
+<!-- <div *ngIf="date == currentDate"> -->
+<div class="container">
     <div class="container">
         <div class="row">
             <div class="col-lg">
-                <h3>Appointment</h3>
+                <h3>Programare</h3>
                 <hr>
                 <!-- <p>appointment.id = {{ appointment.id }}</p> -->
                 <!-- <p>appointment.date = {{ appointment.date }}</p> -->
-                <p>Date:&emsp;{{ date }}</p>
-                <p>Hour:&emsp;{{ hour }}</p>
+                <p>Data:&emsp;{{ date }}</p>
+                <p>Ora&emsp;{{ hour }}</p>
                 <!-- <p>appointment.medicId = {{ appointment.medicId }}</p> -->
                 <!-- <p>medic.userName = {{ medic?.userName }}</p> -->
-                <p>Medic Name:&emsp;{{ medic?.firstName }} {{medic?.lastName}}</p>
+                <p>Medic:&emsp;{{ medic?.firstName }} {{medic?.lastName}}</p>
                 <!-- <p>appointment.pacientId = {{ appointment.pacientId }}</p> -->
                 <!-- <p>pacient.userName = {{ pacient?.userName }}</p> -->
-                <p>Pacient Name:&emsp;{{ pacient?.firstName }} {{pacient?.lastName}}</p>
+                <p>Pacient:&emsp;{{ pacient?.firstName }} {{pacient?.lastName}}</p>
                 <hr>
                 <br>
             </div>
